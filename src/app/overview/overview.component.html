@@ -1,0 +1,55 @@
+<div>
+    <p style="text-align: center;font-size: 2rem;"><strong>Over-view</strong></p>
+    <div class="col-md-12 text-center">
+        <a routerLink="/withdraw"><button type="button" class="btn btn-secondary" [routerLink]="['withdraw']">Go To
+                Withdraw</button></a>
+        <a routerLink="/restock"><button style="margin-left: 20px;" type="button" class="btn btn-secondary"
+                [routerLink]="['restock']">Go To Re-Stock</button></a>
+    </div><br>
+    <p>
+        <strong>Current Balance in Denominations</strong>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">$100's</th>
+                <th scope="col">$50's</th>
+                <th scope="col">$20's</th>
+                <th scope="col">$10's</th>
+                <th scope="col">$5's</th>
+                <th scope="col">$1's</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let denom of denominations">
+            <tr>
+                <td>{{denom.hundreds}}</td>
+                <td>{{denom.fiftys}}</td>
+                <td>{{denom.twentys}}</td>
+                <td>{{denom.tens}}</td>
+                <td>{{denom.fives}}</td>
+                <td>{{denom.ones}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <p>
+        <strong> Transaction History
+        </strong>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">$Amount</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let trans of transactions">
+            <tr>
+                <td>{{trans.date | date: 'dd/MM/yyyy hh:mm a'}}</td>
+                <td>{{ trans.amount}}</td>
+                <td>{{trans.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

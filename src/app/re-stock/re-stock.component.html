@@ -1,0 +1,19 @@
+<p>Please select the amount below to deposit:</p>
+
+<select class="form-select" aria-label="Default select example" [(ngModel)]="depositAmount">
+    <option selected>Select amount to desposit</option>
+    <option value="1">$1</option>
+    <option value="5">$5</option>
+    <option value="10">$10</option>
+    <option value="20">$20</option>
+    <option value="50">$50</option>
+    <option value="100">$100</option>
+</select><br>
+<div class="alert alert-success" *ngIf="depositSuccess" role="alert">
+    Restocked with ${{depositAmount}}
+</div><br>
+<div class="col-md-12 text-center">
+    <button type="button" class="btn btn-secondary" (click)="restock()">Re Stock</button>
+    <a routerLink="/overview"><button style="margin-left: 20px;" type="button"
+            class="btn btn-secondary">Back</button></a>
+</div>
