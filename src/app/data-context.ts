@@ -6,7 +6,7 @@ import { Transactions } from "./models/transactions.model";
 export class AtmDataContext {
     atmData = {
         denominations: [new Denominations()],
-        transactions: [new Transactions()]
+        transactions: [new Transactions()],
     }
     setDenominations(denominations: Denominations[]) {
         this.atmData.denominations = denominations

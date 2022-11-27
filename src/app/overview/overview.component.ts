@@ -17,14 +17,14 @@ export class OverviewComponent implements OnInit {
   ngOnInit(): void {
     this.atmData = this.dataContext.getAtmData();
     console.log(this.atmData)
-    if (this.atmData.denominations[0].total == 0) {
+    if (this.atmData.denominations[0].loadBal) {
       this.inilializeDenom()
     }
     this.denominations = this.atmData.denominations
     this.transactions = this.atmData.transactions
   }
   inilializeDenom() {
-    this.denominations.push({ hundreds: 10, tens: 10, twentys: 10, fiftys: 10, fives: 10, ones: 10, total: 1860 })
+    this.denominations.push({ hundreds: 10, tens: 10, twentys: 10, fiftys: 10, fives: 10, ones: 10, total: 100, loadBal: false })
     this.atmData.denominations = this.denominations
     this.dataContext.setAtmData(this.atmData)
   }

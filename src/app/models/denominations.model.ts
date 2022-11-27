@@ -6,4 +6,5 @@ export class Denominations {
     fives: number = 0
     ones: number = 0
     total: number = 0
+    loadBal: boolean = true
 }

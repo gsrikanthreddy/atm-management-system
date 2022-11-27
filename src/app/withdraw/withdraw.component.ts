@@ -26,18 +26,12 @@ export class WithdrawComponent implements OnInit {
 
   withdraw() {
     this.desiredAmount = parseInt(this.desiredAmount)
-    if (this.desiredAmount < this.atmData.denominations[0].total) {
+    if (this.desiredAmount <= this.atmData.denominations[0].total) {
       this.withdrawSuccess = true
       this.withdrawError = false
-      const transData: Transactions = {
-        date: new Date(),
-        amount: this.desiredAmount,
-        status: 'Success'
-      }
+
       this.deductAmount()
-      this.transactions.push(transData)
-      this.atmData.transactions = this.transactions
-      this.dataContext.setAtmData(this.atmData)
+
     } else {
       this.withdrawSuccess = false
       this.withdrawError = true
@@ -63,9 +57,14 @@ export class WithdrawComponent implements OnInit {
       this.denominations[0].fives = this.denominations[0].fives - 1
     } else if (this.desiredAmount == 1) {
       this.denominations[0].ones = this.denominations[0].ones - 1
-    } else {
-
     }
+    const transData: Transactions = {
+      date: new Date(),
+      amount: this.desiredAmount,
+      status: 'Success'
+    }
+    this.transactions.push(transData)
+    this.atmData.transactions = this.transactions
     this.denominations[0].total = this.denominations[0].total - this.desiredAmount
     this.atmData.denominations = this.denominations
     this.dataContext.setAtmData(this.atmData)
