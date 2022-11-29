@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { ReStockComponent } from './re-stock/re-stock.component';
 import { OverviewComponent } from './overview/overview.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AtmDataContext } from './data-context';
 
 @NgModule({
@@ -19,6 +19,7 @@ import { AtmDataContext } from './data-context';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [AtmDataContext],

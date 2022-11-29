@@ -1,17 +1,8 @@
 <div>
     <p>Please select the amount below to withdraw:</p>
-    <!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="desiredAmount">
-        <option selected>Select amount to Withdraw</option>
-        <option value="1">$1</option>
-        <option value="5">$5</option>
-        <option value="10">$10</option>
-        <option value="20">$20</option>
-        <option value="50">$50</option>
-        <option value="100">$100</option>
-    </select> -->
     <div class="input-group mb-3">
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="desiredAmount">
+        <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" [(ngModel)]="desiredAmount">
     </div>
     <br>
     <div class="alert alert-success" *ngIf="withdrawSuccess" role="alert">
